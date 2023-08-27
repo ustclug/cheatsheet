@@ -1,4 +1,7 @@
 #set page("a2", flipped: true)
+#set text(
+    font: "Monaco"
+)
 
 #let commandBlock(body, title: "ls [option] file") = {
     box(
@@ -13,7 +16,7 @@
         clip: true,
     )[
         #text(weight: "bold")[
-            #title
+            #raw(title)
         ]
 
         #set text(size: 10pt)
