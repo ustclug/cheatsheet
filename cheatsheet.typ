@@ -331,12 +331,12 @@ q: apply and quit the field mgmt screen
 
 #commandBlock(title: "pgrep [options] pattern")[
 ```
--l : show pid and process name
--a : show pid and full command line
--n : if more than one show newest
--o : if more than one show oldest
+-l: show pid and process name
+-a: show pid and full command line
+-n: if more than one show newest
+-o: if more than one show oldest
 -u uid : show only processes of uid
--c : count results
+-c: count results
 ```
 ]
 
@@ -391,7 +391,7 @@ q: apply and quit the field mgmt screen
 -s subject: email with subject
 -c address1,address2: cc copy
 -b address1,address2: bcc copy
-mail -s ’hello there’ ’joe@st.com’ < so- mefile
+mail -s ’hello there’ ’joe@st.com’ < somefile
 ```
 ]
 
