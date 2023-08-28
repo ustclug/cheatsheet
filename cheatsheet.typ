@@ -3,7 +3,19 @@
     font: "Monaco"
 )
 
-#let commandBlock(body, title: "ls [options] file") = {
+#show raw.where(block: false): it => {
+    box(
+        fill: luma(240),
+        inset: (x: 3pt, y: 0pt),
+        outset: (y: 3pt),
+        radius: 2pt,
+    )[
+        #set text(size: 10pt)
+        #raw(it.text, lang: "bash")
+    ]
+}
+
+#let commandBlock(body, title: "", command: "") = {
     box(
         width: 100%,
         stroke: (
@@ -15,75 +27,62 @@
         radius: 5pt,
         clip: true,
     )[
-        #text(weight: "bold")[
-            #raw(title)
+        #text(size: 9pt, weight: "bold")[
+            #title
         ]
+        #raw(command, lang: "bash")
 
-        #set text(size: 7pt, font: "DejaVu Sans Mono")
+        #set text(size: 9pt, font: "DejaVu Sans Mono")
         #body
     ]
-
 }
 
 
 #columns(5)[
 == 文件操作
-#commandBlock(title: "列目录与文件: ls [options] file")[
-包含隐藏文件在内的所有 (#strong[a]ll) 文件: ls -a
-
-列出详细 (#strong[l]ong) 信息: ls -l
-
-以人类 (#strong[h]uman) 格式显示文件大小: ls -lh
-
-递归 (#strong[R]ecursive) 列出所有子文件: ls -R
+#commandBlock(title: "列目录与文件:", command:"ls [options] file")[
+- 包含隐藏文件在内的所有 (#strong[a]ll) 文件: `ls -a`
+- 列出详细 (#strong[l]ong) 信息: `ls -l`
+- 以人类 (#strong[h]uman) 格式显示文件大小: `ls -lh`
+- 递归 (#strong[R]ecursive) 列出所有子文件: `ls -R`
 ]
 
 
-#commandBlock(title: "列出目录树: tree [options] dir")[
-列出家目录的树: tree \~
-
-仅列出树中的文件夹 (#strong[d]irectory): tree -d
-
-列出含隐藏文件在内的所有 (#strong[a]ll) 文件的目录树: tree -a
+#commandBlock(title: "列出目录树:", command:"tree [options] dir")[
+- 列出家目录的树: `tree ~`
+- 仅列出树中的文件夹 (#strong[d]irectory): `tree -d`
+- 列出含隐藏文件在内的所有 (#strong[a]ll) 文件的目录树: `tree -a`
 ]
 
-
-#commandBlock(title: "复制: cp [options] source dest")[
-复制 \~/A 到 /tmp/B: cp \~/A /tmp/B
-
-递归 (#strong[r]ecursive) 复制目录: cp -r \~/dirA /tmp/dirB
-
-复制时显示详细 (#strong[v]erbose) 信息: cp -v \~/A /tmp/B
+#commandBlock(title: "复制:", command:" cp [options] source dest")[
+- 复制 `~/A` 到 `/tmp/B`: `cp ~/A /tmp/B`
+- 递归 (#strong[r]ecursive) 复制目录: `cp -r ~/dirA /tmp/dirB`
+- 复制时显示详细 (#strong[v]erbose) 信息: `cp -v ~/A /tmp/B`
 ]
 
-#commandBlock(title: "重命名/移动: mv [options] source dest")[
-重命名 A 到 B: mv A B
-
-将 A 移动到家目录: mv A \~/
+#commandBlock(title: "重命名/移动:", command:"mv [options] source dest")[
+- 重命名 `A` 到 `B`: `mv A B`
+- 将 `A` 移动到家目录: `mv A ~/`
 ]
 
-#commandBlock(title: "删除: rm [options] file")[
-递归 (#strong[r]ecursive) 删除 A 目录: rm -r A
-
-递归删除且不作确认 (#strong[f]orce): rm -rf A #strong(text(fill: red)[(谨慎使用!)])
+#commandBlock(title: "删除:", command:"rm [options] file")[
+- 递归 (#strong[r]ecursive) 删除 A 目录: `rm -r A`
+- 递归删除且不作确认 (#strong[f]orce): `rm -rf A` #strong(text(fill: red)[(谨慎使用!)])
 ]
 
-#commandBlock(title: "读取文件开头: head [options] file")[
-读文件开头 100 行 (li#strong[n]e): head -n 100 A
-
-读文件开头 100 字符 (#strong[c]har): head -c 100 A
+#commandBlock(title: "读取文件开头:", command:"head [options] file")[
+- 读文件开头 100 行 (li#strong[n]e): `head -n 100 A`
+- 读文件开头 100 字符 (#strong[c]har): `head -c 100 A`
 ]
 
 #commandBlock(title: "读取文件结尾: tail [options] file")[
-读文件结尾 100 行 (li#strong[n]e): tail -n 100 A
-
-读结尾并实时跟随 (#strong[f]ollow) 更新: tail -f A
+- 读文件结尾 100 行 (li#strong[n]e): `tail -n 100 A`
+- 读结尾并实时跟随 (#strong[f]ollow) 更新: `tail -f A`
 ]
 
 #commandBlock(title: "链接: ln [options] file link")[
-作 A 指向 /B 的符号链接 (#strong[s]ymlink): ln -s /B A
-
-作 A 和 /B 的硬链接: ln /B A
+- 作 `A` 指向 `/B` 的符号链接 (#strong[s]ymlink): `ln -s /B A`
+- 作 `A` 和 `/B` 的硬链接: `ln /B A`
 ]
 
 #commandBlock(title: "以行为单位选择内容: cut [options] file")[
