@@ -10,11 +10,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Setup font
+        run: |
+          mkdir -p $GITHUB_WORKSPACE/fonts
+          ./setup-font.sh
       - name: Typst
         uses: lvignoli/typst-action@v0
         with:
           source_file: |
             cheatsheet.typ
+        env:
+          TYPST_FONT_PATHS: ${{ github.workspace }}/fonts
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:

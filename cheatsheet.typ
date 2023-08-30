@@ -1,6 +1,6 @@
 #set page("a2", flipped: true)
 #set text(
-    font: "Monaco"
+    font: "思源宋體"
 )
 
 #show raw.where(block: false): it => {
@@ -32,7 +32,7 @@
         ]
         #raw(command, lang: "bash")
 
-        #set text(size: 9pt, font: "DejaVu Sans Mono")
+        #set text(size: 9pt)
         #body
     ]
 }
