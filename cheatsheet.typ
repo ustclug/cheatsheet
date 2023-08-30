@@ -27,7 +27,7 @@
         radius: 5pt,
         clip: true,
     )[
-        #text(size: 9pt, weight: "bold")[
+        #text(size: 11pt, weight: "bold")[
             #title
         ]
         #raw(command, lang: "bash")
