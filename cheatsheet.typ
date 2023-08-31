@@ -1,4 +1,11 @@
-#set page("a2", flipped: true)
+#set page("a2",
+    flipped: true,
+    footer: [
+        #figure(
+            image("image/logo.svg", width: 5%)
+        )
+    ]
+)
 #set text(
     font: "思源宋體"
 )
