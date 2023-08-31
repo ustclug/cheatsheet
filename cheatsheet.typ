@@ -1,13 +1,15 @@
-#set page("a2",
+#set page(
+    width: 60cm,
+    height: 70cm,
     flipped: true,
     footer: [
-        #figure(
-            image("image/logo.svg", width: 5%)
-        )
-    ]
+        #set align(right)
+        #image("image/logo.svg", width: 2%),
+    ],
+    margin: (x: 3cm, y: 2cm),
 )
 #set text(
-    font: "思源宋體"
+    font: "Source Han Serif"
 )
 
 #show raw.where(block: false): it => {
@@ -34,12 +36,19 @@
         radius: 5pt,
         clip: true,
     )[
-        #text(size: 11pt, weight: "bold")[
+        #text(
+            size: 11pt,
+            weight: "bold",
+            font: "Source Han Serif"
+        )[
             #title
         ]
         #raw(command, lang: "bash")
 
-        #set text(size: 9pt)
+        #set text(
+            size: 9pt,
+            font: "Source Han Serif"
+        )
         #body
     ]
 }
