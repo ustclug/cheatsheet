@@ -1,6 +1,6 @@
 #set page(
-    width: 60cm,
-    height: 70cm,
+    width: 40cm,
+    height: 60cm,
     flipped: true,
     footer: [
         #set align(right)
@@ -9,7 +9,7 @@
     margin: (x: 3cm, y: 2cm),
 )
 #set text(
-    font: "Source Han Serif"
+    font: "Source Han Serif SC"
 )
 
 #show raw.where(block: false): it => {
@@ -39,7 +39,7 @@
         #text(
             size: 11pt,
             weight: "bold",
-            font: "Source Han Serif"
+            font: "Source Han Serif SC"
         )[
             #title
         ]
@@ -47,7 +47,7 @@
 
         #set text(
             size: 9pt,
-            font: "Source Han Serif"
+            font: "Source Han Serif SC"
         )
         #body
     ]
