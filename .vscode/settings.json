@@ -1,5 +1,5 @@
 {
-    // "typst-preview.fontPaths": [
-    //     "./fonts"
-    // ]
+    "typst-preview.fontPaths": [
+        "${workspaceFolder}/fonts"
+    ]
 }
