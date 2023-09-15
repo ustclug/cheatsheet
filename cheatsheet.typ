@@ -124,7 +124,7 @@ curl --version | head -n 1 | cut -d' ' -f2
         [r: #strong[r]ead w: #strong[w]rite\
         x: e#strong[x]ecute (可执行/列目录)],
     )
-    - 特殊权限 (X, s, t) 参考 `man chmod`
+    - 特殊权限 (s, t, S, T) 参考 `man chmod`
 - *权限的表示：八进制数字*
     - 格式: 四位八进制数字，第一位可选
     - 例子: `755 (rwxr-xr-x)`
